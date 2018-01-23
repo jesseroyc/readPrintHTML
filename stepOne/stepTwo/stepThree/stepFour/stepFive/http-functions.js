@@ -2,10 +2,9 @@ module.exports = function getHTML (options, callback) {
 
 	var https = require('https');
 
-	var buffer = [];
-
 	https.get(options, function (response) {
 
+		var buffer = [];
 		//What does setting encoding mean???
 		response.setEncoding('utf8');
 
@@ -17,9 +16,8 @@ module.exports = function getHTML (options, callback) {
 		});
 
 		response.on('end', function() {
-			console.log(buffer);
 	   		console.log('Response stream complete.')
-
+	   		callback(buffer);
 		});
     });
 }

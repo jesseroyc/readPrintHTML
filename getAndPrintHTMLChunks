@@ -1,3 +1,5 @@
+	console.log('hello');
+
 function getAndPrintHTMLChunks () {
 
 	var https = require('https');
@@ -14,8 +16,7 @@ function getAndPrintHTMLChunks () {
 
 		//Don't understand the .on function and the setEncoding function
 		response.on('data', function (data) {
-			console.log('Chunk Received. Length: ' + data.length + '\n');
-			console.log(data);
+			console.log('Chunk Received. Length:', data.length);
 		});
 
 		response.on('end', function() {
